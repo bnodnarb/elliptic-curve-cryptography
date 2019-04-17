@@ -3,7 +3,9 @@ var ec = new EC('secp256k1');
 var SHA256 = require('crypto-js/sha256');
 
 // Generating a key pair from private key
-var key = ec.keyFromPrivate('6fe898ccde0cbdb6be3a2cefe2f31c186d419c4790baaad597ae7d0730720c72');
+var argv = require('minimist')(process.argv.slice(2));
+pv = argv.pv;
+var key = ec.keyFromPrivate(pv);
 var publicKey = key.getPublic('hex');
 
 // Create message
