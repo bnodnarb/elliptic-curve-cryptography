@@ -5,14 +5,16 @@ var SHA256 = require('crypto-js/sha256');
 // Generating a key pair from private key
 var argv = require('minimist')(process.argv.slice(2));
 pv = argv.pv;
+amount = argv.amount;
+toAddress = argv.toAddress;
 var key = ec.keyFromPrivate(pv);
 var publicKey = key.getPublic('hex');
 
 // Create message
 var msg = {
-  'amount': 100,
+  'amount': amount,
   'fromAddress': publicKey,
-  'toAddress': null,
+  'toAddress': toAddress,
   'timestamp': Math.floor(Date.now() / 1000) * 1000
 };
 
