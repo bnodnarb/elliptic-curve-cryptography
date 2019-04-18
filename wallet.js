@@ -1,5 +1,6 @@
 const readline = require('readline');
 const fs = require('fs');
+const chalk = require('chalk');
 
 var argv = require('minimist')(process.argv.slice(2));
 address = argv.address;
@@ -33,8 +34,8 @@ function completed(transactions) {
     fromAmount += amount;
   }
 
-  console.log('TO: ' + toAmount);
-  console.log('FROM: ' + fromAmount);
-  console.log('BALANCE: ' + (toAmount - fromAmount));
+  console.log(chalk.green('TO: ' + toAmount));
+  console.log(chalk.red('FROM: ' + fromAmount));
+  console.log(chalk.green.bold('BALANCE: ' + (toAmount - fromAmount)));
 
 }
