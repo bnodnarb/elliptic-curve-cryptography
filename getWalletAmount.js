@@ -1,23 +1,40 @@
-/*
-var fs = require('fs');
+const readline = require('readline');
+const fs = require('fs');
 
-fs.readFile('ledger.txt', 'utf8', function(err, data) {
-   if (err) throw err;
-   console.log(data);
- });
- */
+var argv = require('minimist')(process.argv.slice(2));
+address = argv.address;
 
- var lineReader = require('readline').createInterface({
-   input: require('fs').createReadStream('ledger.txt')
- });
+let rl = readline.createInterface({
+    input: fs.createReadStream('ledger.txt')
+});
 
- jsonIssues = [
- {ID:'1',Name:'Some name',Notes:'NOTES'},
- {ID:'2',Name:'Some name 2',Notes:'NOTES 2'}
-];
+let transactions = [];
 
- lineReader.on('line', function (line) {
-   jsonIssues[jsonIssues.length] = {ID:'3',Name:'Some name 3',Notes:'NOTES 3'};
- });
+rl.on('line', function(tx) {
+    transactions.push(JSON.parse(tx));
+});
 
- console.log(jsonIssues);
+rl.on('close', function(tx) {
+  completed(transactions);
+});
+
+function completed(transactions) {
+  var txTo = transactions.filter(function(item) { return item.msg.toAddress === address; });
+  var toAmount = 0
+  for (var key in txTo) {
+    var amount = txTo[key].msg.amount;
+    toAmount += amount;
+  }
+
+  var txFrom = transactions.filter(function(item) { return item.msg.fromAddress === address; });
+  var fromAmount = 0
+  for (var key in txFrom) {
+    var amount = txFrom[key].msg.amount;
+    fromAmount += amount;
+  }
+
+  console.log('TO: ' + toAmount);
+  console.log('FROM: ' + fromAmount);
+  console.log('BALANCE: ' + (toAmount - fromAmount));
+
+}
