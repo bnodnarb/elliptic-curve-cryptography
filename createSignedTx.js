@@ -6,7 +6,9 @@ var SHA256 = require('crypto-js/sha256');
 var argv = require('minimist')(process.argv.slice(2));
 privateKey = argv.privateKey;
 amount = argv.amount;
+fromAddress = argv.fromAddress;
 toAddress = argv.toAddress;
+
 var key = ec.keyFromPrivate(privateKey);
 var publicKey = key.getPublic('hex');
 
