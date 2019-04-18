@@ -5,7 +5,7 @@ var argv = require('minimist')(process.argv.slice(2));
 address = argv.address;
 
 let rl = readline.createInterface({
-    input: fs.createReadStream('ledger.txt')
+    input: fs.createReadStream('transactions.txt')
 });
 
 let transactions = [];

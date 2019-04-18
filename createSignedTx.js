@@ -4,10 +4,10 @@ var SHA256 = require('crypto-js/sha256');
 
 // Generating a key pair from private key
 var argv = require('minimist')(process.argv.slice(2));
-pv = argv.pv;
+privateKey = argv.privateKey;
 amount = argv.amount;
 toAddress = argv.toAddress;
-var key = ec.keyFromPrivate(pv);
+var key = ec.keyFromPrivate(privateKey);
 var publicKey = key.getPublic('hex');
 
 // Create message
