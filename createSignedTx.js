@@ -12,7 +12,7 @@ var fromKeyPair = ec.keyFromPrivate(fromPrivateKey);
 var fromPublicKey = fromKeyPair.getPublic('hex');
 
 // Create message
-var msg = {
+var tx = {
   'amount': amount,
   'fromPublicKey': fromPublicKey,
   'toPublicKey': toPublicKey,
@@ -20,16 +20,16 @@ var msg = {
 };
 
 // Sign message
-var msgHash = SHA256(JSON.stringify(msg)).toString();
-var signature = fromKeyPair.sign(msgHash);
+var txHash = SHA256(JSON.stringify(tx)).toString();
+var signature = fromKeyPair.sign(txHash);
 var derSignature = signature.toDER('hex');
 
 // Add msg and der signature (from msgHash and signature) to message object
-var msgObject = {
-  'msg': msg,
+var txObject = {
+  'tx': tx,
   'signature':derSignature
 }
 
 console.log();
-console.log(JSON.stringify(msgObject));
+console.log(JSON.stringify(txObject));
 console.log();

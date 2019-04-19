@@ -8,25 +8,27 @@ const chalk = require('chalk');
 // Verify a message object
 var argv = require('minimist')(process.argv.slice(2));
 tx = argv.tx;
-msgObjectToVerifyString = tx;
-var msgObjectToVerify = JSON.parse(msgObjectToVerifyString);
-msgToVerify = msgObjectToVerify.msg;
-msgHashToVerify = SHA256(JSON.stringify(msgToVerify)).toString();
-publicKeyToVerify = msgObjectToVerify.msg.fromAddress;
-signatureToVerify = msgObjectToVerify.signature;
+
+var txObjectToVerify = JSON.parse(tx);
+txToVerify = txObjectToVerify.tx;
+txHashToVerify = SHA256(JSON.stringify(txToVerify)).toString();
+publicKeyToVerify = txObjectToVerify.tx.fromPublicKey;
+signatureToVerify = txObjectToVerify.signature;
 var keyFromPublic = ec.keyFromPublic(publicKeyToVerify, 'hex');
-var verified = keyFromPublic.verify(msgHashToVerify, signatureToVerify);
+var verified = keyFromPublic.verify(txHashToVerify, signatureToVerify);
+
+console.log();
 
 if (verified == true) {
-  console.log(chalk.green('tx valid'));
+  console.log(chalk.green.bold('TX IS VALID'));
   fs.appendFile('transactions.txt', tx + '\n', function (err) {
     if (err) throw err;
-    console.log(chalk.green('tx recorded'));
+    console.log(chalk.green('TX RECORDED SUCCESSFULLY'));
     console.log();
   });
 } else {
-  console.log(chalk.red('tx invalid'));
-  console.log(chalk.red('tx not recorded'));
+  console.log(chalk.red('TX IS INVALID'));
+  console.log(chalk.red('TX NOT RECORDED'));
   console.log();
 
 }

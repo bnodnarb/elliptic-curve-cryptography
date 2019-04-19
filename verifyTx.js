@@ -8,18 +8,20 @@ const chalk = require('chalk');
 var argv = require('minimist')(process.argv.slice(2));
 tx = argv.tx;
 
-var msgObjectToVerify = JSON.parse(tx);
-msgToVerify = msgObjectToVerify.msg;
-msgHashToVerify = SHA256(JSON.stringify(msgToVerify)).toString();
-publicKeyToVerify = msgObjectToVerify.msg.fromPublicKey;
-signatureToVerify = msgObjectToVerify.signature;
+var txObjectToVerify = JSON.parse(tx);
+txToVerify = txObjectToVerify.tx;
+txHashToVerify = SHA256(JSON.stringify(txToVerify)).toString();
+publicKeyToVerify = txObjectToVerify.tx.fromPublicKey;
+signatureToVerify = txObjectToVerify.signature;
 var keyFromPublic = ec.keyFromPublic(publicKeyToVerify, 'hex');
-var verified = keyFromPublic.verify(msgHashToVerify, signatureToVerify);
+var verified = keyFromPublic.verify(txHashToVerify, signatureToVerify);
+
+console.log();
 
 if (verified == true) {
-  console.log(chalk.green('tx valid'));
+  console.log(chalk.green.bold('TX IS VALID'));
 } else {
-  console.log(chalk.red('tx invalid'));
+  console.log(chalk.red.bold('TX IS INVALID'));
 }
 
 console.log();

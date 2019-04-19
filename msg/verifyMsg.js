@@ -16,17 +16,16 @@ signatureToVerify = msgObjectToVerify.signature;
 var keyFromPublic = ec.keyFromPublic(publicKeyToVerify, 'hex');
 var verified = keyFromPublic.verify(msgHashToVerify, signatureToVerify);
 
+console.log();
+
 if (verified == true) {
-  console.log();
   console.log(chalk.green.bold('MESSAGE IS VALID'));
   console.log()
   console.log('The signature:');
   console.log('    ' + msgObjectToVerify.signature);
   console.log('proves that the message:');
   console.log('    ' + JSON.stringify(msgToVerify));
-  console.log('was signed by the ' + chalk.red('private key') + ' associated with the ' + chalk.green('public key:'));
-  console.log('    ' + chalk.green(msgObjectToVerify.msg.publicKey));
-  console.log();
+  console.log('was signed by the ' + chalk.red('private key') + ' associated with the ' + chalk.green('public key'));
 } else {
   console.log(chalk.red.bold('MSG IS INVALID'));
 }
