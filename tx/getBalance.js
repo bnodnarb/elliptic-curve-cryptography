@@ -36,6 +36,6 @@ function completed(transactions) {
   console.log();
   console.log(chalk.green('TO: ' + toAmount));
   console.log(chalk.red('FROM: ' + fromAmount));
-  console.log(chalk.green.bold('BALANCE: ' + (toAmount - fromAmount)));
+  console.log(chalk.bold('BALANCE: ' + (toAmount - fromAmount)));
   console.log();
 }
