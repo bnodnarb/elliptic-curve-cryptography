@@ -4,25 +4,24 @@ var SHA256 = require('crypto-js/sha256');
 
 // Generating a key pair from private key
 var argv = require('minimist')(process.argv.slice(2));
-privateKey = argv.privateKey;
+fromPrivateKey = argv.fromPrivateKey;
 amount = argv.amount;
-fromAddress = argv.fromAddress;
-toAddress = argv.toAddress;
+toPublicKey = argv.toPublicKey;
 
-var key = ec.keyFromPrivate(privateKey);
-var publicKey = key.getPublic('hex');
+var fromKeyPair = ec.keyFromPrivate(fromPrivateKey);
+var fromPublicKey = fromKeyPair.getPublic('hex');
 
 // Create message
 var msg = {
   'amount': amount,
-  'fromAddress': publicKey,
-  'toAddress': toAddress,
+  'fromPublicKey': fromPublicKey,
+  'toPublicKey': toPublicKey,
   'timestamp': Math.floor(Date.now() / 1000) * 1000
 };
 
 // Sign message
 var msgHash = SHA256(JSON.stringify(msg)).toString();
-var signature = key.sign(msgHash);
+var signature = fromKeyPair.sign(msgHash);
 var derSignature = signature.toDER('hex');
 
 // Add msg and der signature (from msgHash and signature) to message object
@@ -31,5 +30,6 @@ var msgObject = {
   'signature':derSignature
 }
 
+console.log();
 console.log(JSON.stringify(msgObject));
 console.log();

@@ -7,11 +7,11 @@ const chalk = require('chalk');
 // Verify a message object
 var argv = require('minimist')(process.argv.slice(2));
 tx = argv.tx;
-msgObjectToVerifyString = tx;
-var msgObjectToVerify = JSON.parse(msgObjectToVerifyString);
+
+var msgObjectToVerify = JSON.parse(tx);
 msgToVerify = msgObjectToVerify.msg;
 msgHashToVerify = SHA256(JSON.stringify(msgToVerify)).toString();
-publicKeyToVerify = msgObjectToVerify.msg.fromAddress;
+publicKeyToVerify = msgObjectToVerify.msg.fromPublicKey;
 signatureToVerify = msgObjectToVerify.signature;
 var keyFromPublic = ec.keyFromPublic(publicKeyToVerify, 'hex');
 var verified = keyFromPublic.verify(msgHashToVerify, signatureToVerify);
