@@ -1,18 +1,17 @@
 var CryptoJS = require("crypto-js");
 
-var sharedSecret = '44533c8851edcc1f7d1eea508f33ce3214783632b8b431710874d587989678c9';
-
 var argv = require('minimist')(process.argv.slice(2));
-operation = argv.op;
-msg = argv.msg
+direction = argv.direction;
+msg = argv.msg;
+sharedKey = argv.sharedKey;
 
-if (operation == 'encrypt') {
-  var ciphertext = CryptoJS.AES.encrypt(msg, sharedSecret).toString();
+if (direction == 'encrypt') {
+  var ciphertext = CryptoJS.AES.encrypt(msg, sharedKey).toString();
   console.log(ciphertext);
 }
 
-if (operation == 'decrypt') {
-  var bytes  = CryptoJS.AES.decrypt(msg, sharedSecret);
+if (direction == 'decrypt') {
+  var bytes  = CryptoJS.AES.decrypt(msg, sharedKey);
   var originalText = bytes.toString(CryptoJS.enc.Utf8);
   console.log(originalText);
 }
