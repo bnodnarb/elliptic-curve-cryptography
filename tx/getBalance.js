@@ -34,8 +34,13 @@ function completed(transactions) {
     fromAmount += amount;
   }
   console.log();
-  console.log(chalk.green('TO: ' + toAmount));
-  console.log(chalk.red('FROM: ' + fromAmount));
-  console.log(chalk.bold('BALANCE: ' + (toAmount - fromAmount)));
+  console.log(chalk.white('To This publicKey: ' + toAmount));
+  console.log(chalk.white('From this publicKey: ' + fromAmount));
+  if ((toAmount - fromAmount) >= 0) {
+    console.log(chalk.green.bold('BALANCE: ' + (toAmount - fromAmount)));
+  }
+  if ((toAmount - fromAmount) < 0) {
+    console.log(chalk.red.bold('BALANCE: ' + (toAmount - fromAmount)));
+  }
   console.log();
 }
