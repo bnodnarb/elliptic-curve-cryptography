@@ -1,5 +1,5 @@
 var EC = require('elliptic').ec;
-var ec = new EC('curve25519');
+var ec = new EC('secp256k1');
 var SHA256 = require('crypto-js/sha256');
 var argv = require('minimist')(process.argv.slice(2));
 const chalk = require('chalk');

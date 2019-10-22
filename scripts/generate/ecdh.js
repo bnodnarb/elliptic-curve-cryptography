@@ -1,5 +1,5 @@
 var EC = require('elliptic').ec;
-var ec = new EC('curve25519');
+var ec = new EC('secp256k1');
 
 var key1 = ec.keyFromPrivate('49c1c4a5647e43cb381b71a96d90c962a79353f386cbe2316e7f57dd64fe81aa');
 var publicKey1 = key1.getPublic();
