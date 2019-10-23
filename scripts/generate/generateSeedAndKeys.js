@@ -1,6 +1,4 @@
 var functions = require("../functions.js");
-var EC = require('elliptic').ec;
-var ec = new EC('secp256k1');
 
 var seedList = functions.generateSeed();
 
