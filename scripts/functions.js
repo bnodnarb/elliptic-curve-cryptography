@@ -3,6 +3,7 @@ var ec = new EC('secp256k1');
 var argv = require('minimist')(process.argv.slice(2));
 const chalk = require('chalk');
 var SHA256 = require('crypto-js/sha256');
+var CryptoJS = require("crypto-js");
 
 module.exports = {
   // crypto-js functions
@@ -55,8 +56,17 @@ module.exports = {
       seedArray.push(word);
     }
     return seedArray.join('-');
+  },
+
+  encryptMsg: function(msg, sharedKey) {
+    return CryptoJS.AES.encrypt(msg, sharedKey).toString();
+  },
+
+  decryptMsg: function(msg, sharedKey) {
+    return CryptoJS.AES.decrypt(msg, sharedKey).toString(CryptoJS.enc.Utf8);
   }
-};
+
+}; // end of module
 
 function getRandomInteger(min, max) {
   return Math.floor(Math.random() * (max - min + 1) ) + min;

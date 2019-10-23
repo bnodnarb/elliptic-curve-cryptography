@@ -1,12 +1,9 @@
-var CryptoJS = require("crypto-js");
+var functions = require("../functions.js");
 var argv = require('minimist')(process.argv.slice(2));
 
-msg = argv.msg;
-sharedKey = argv.sharedKey;
+var msg = argv.msg;
+var sharedKey = argv.sharedKey;
 
-var bytes  = CryptoJS.AES.decrypt(msg, sharedKey);
-var originalText = bytes.toString(CryptoJS.enc.Utf8);
+var decryptedMsg = functions.decryptMsg(msg,sharedKey);
 
-console.log();
-console.log(originalText);
-console.log();
+functions.outputString(decryptedMsg,'white','Decrypted Message: ',true,true);
