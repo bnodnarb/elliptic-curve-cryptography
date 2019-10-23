@@ -1,8 +1,8 @@
-var argv = require('minimist')(process.argv.slice(2));
 var functions = require("../functions.js");
+var argv = require('minimist')(process.argv.slice(2));
 
-myPrivateKey = argv.myPrivateKey;
-collaboratorPublicKey = argv.collaboratorPublicKey;
+var myPrivateKey = argv.myPrivateKey;
+var collaboratorPublicKey = argv.collaboratorPublicKey;
 
 var myKey = functions.keyFromPrivate(myPrivateKey);
 var collaboratorKey = functions.keyFromPublic(collaboratorPublicKey)

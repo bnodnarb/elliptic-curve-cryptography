@@ -1,3 +1,4 @@
+var functions = require("../functions.js");
 var EC = require('elliptic').ec;
 var ec = new EC('secp256k1');
 var SHA256 = require('crypto-js/sha256');
@@ -28,15 +29,13 @@ myInterface.on('close', function(line) {
   }
   var dashSeedList = seedList.join('-')
 
-  sha256DashSeedList = SHA256(dashSeedList).toString();
+  sha256DashSeedList = functions.sha256(dashSeedList);
 
   var key = ec.keyFromPrivate(sha256DashSeedList);
   var publicKey = key.getPublic('hex');
   var privateKey = key.getPrivate('hex');
 
-  console.log();
-  console.log(dashSeedList);
-  console.log(chalk.red(chalk.bold('privateKey: ') + privateKey));
-  console.log(chalk.green(chalk.bold('publicKey: ') + publicKey));
-  console.log();
+  functions.outputString(dashSeedList,'red','Seed List: ',true,true);
+  functions.outputString(privateKey,'red','Private Key: ',true,true);
+  functions.outputString(publicKey,'green','Public Key: ',true,true);
 });
