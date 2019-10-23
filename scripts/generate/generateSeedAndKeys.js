@@ -13,7 +13,7 @@ function getRndInteger(min, max) {
 }
 
 var myInterface = readline.createInterface({
-  input: fs.createReadStream('bip39-word-list.csv')
+  input: fs.createReadStream('generate/bip39-word-list.csv')
 });
 
 myInterface.on('line', function (line) {
