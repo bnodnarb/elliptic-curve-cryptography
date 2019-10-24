@@ -1,14 +1,12 @@
 var EC = require('elliptic').ec;
 var ec = new EC('secp256k1');
-var argv = require('minimist')(process.argv.slice(2));
-const chalk = require('chalk');
-var SHA256 = require('crypto-js/sha256');
+var chalk = require('chalk');
 var CryptoJS = require("crypto-js");
 
 module.exports = {
   // crypto-js functions
   sha256: function(string) {
-    return SHA256(string).toString();
+    return CryptoJS.SHA256(string).toString();
   },
 
   // elliptic functions
@@ -39,7 +37,7 @@ module.exports = {
       console.log(chalk.blue(chalk.bold(label) + string));
     }
     if (color == 'white') {
-      console.log(chalk.white(chalk.bold(label) + string));
+      console.log(chalk.whiteBright(chalk.bold(label) + string));
     }
     if (lineBelow) {
       console.log();
