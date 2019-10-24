@@ -1,15 +1,16 @@
 var functions = require("../functions.js");
 var argv = require('minimist')(process.argv.slice(2));
 
-msg = argv.msg;
+var msg = argv.msg;
 
-var msgObjectToVerify = JSON.parse(msg);
-msgToVerify = msgObjectToVerify.signedMsg;
-msgHashToVerify = functions.sha256(JSON.stringify(msgToVerify)).toString();
-publicKeyToVerify = msgObjectToVerify.signedMsg.publicKey;
-signatureToVerify = msgObjectToVerify.signature;
-var keyFromPublic = functions.keyFromPublic(publicKeyToVerify,'hex');
-var verified = keyFromPublic.verify(msgHashToVerify, signatureToVerify);
+var msgObject = JSON.parse(msg);
+var signedMsg = msgObject.signedMsg;
+var publicKey = msgObject.signedMsg.publicKey;
+var signature = msgObject.signature;
+
+var msgHash = functions.sha256(JSON.stringify(signedMsg)).toString();
+var keyFromPublic = functions.keyFromPublic(publicKey,'hex');
+var verified = keyFromPublic.verify(msgHash, signature);
 
 if (verified == true) {
   functions.outputString('Message is Valid','green','',true,true);
