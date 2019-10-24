@@ -17,7 +17,7 @@ module.exports = {
   },
 
   keyFromPublic: function(publicKey) {
-    return ec.keyFromPublic(publicKey, 'hex').getPublic();
+    return ec.keyFromPublic(publicKey, 'hex');
   },
 
   deriveSharedKey: function(key1, key2) {

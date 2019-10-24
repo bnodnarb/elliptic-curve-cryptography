@@ -5,7 +5,7 @@ var myPrivateKey = argv.myPrivateKey;
 var collaboratorPublicKey = argv.collaboratorPublicKey;
 
 var myKey = functions.keyFromPrivate(myPrivateKey);
-var collaboratorKey = functions.keyFromPublic(collaboratorPublicKey)
+var collaboratorKey = functions.keyFromPublic(collaboratorPublicKey).getPublic();
 var sharedKey = functions.deriveSharedKey(myKey, collaboratorKey);
 
 functions.outputString(sharedKey,'red','Shared Key: ',true,true); // string, color, label, lineAbove, lineBelow
