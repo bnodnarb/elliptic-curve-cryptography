@@ -4,7 +4,7 @@ var argv = require('yargs')
     .demandOption('publicKey').alias('publicKey', 'p').describe('publicKey', 'Your collaborator\'s public key')
     .help('help').alias('help', 'h')
     .version(false)
-    .showHelpOnFail(false, 'argument error: run with --help')
+    .showHelpOnFail(false, 'argument error: run with --help\n')
     .argv;
 
 var privateKey = argv.privateKey;
