@@ -9,6 +9,13 @@ module.exports = {
     return CryptoJS.SHA256(string).toString();
   },
 
+  sha256Scramble: function(string, instances) {
+    for (i = 0; i < instances; i++) {
+      string = sha256(string);
+    }
+    return string;
+  },
+
   // elliptic functions
   keyFromPrivate: function(privateKey) {
     return key = ec.keyFromPrivate(privateKey);
@@ -68,6 +75,10 @@ module.exports = {
 
 function getRandomInteger(min, max) {
   return Math.floor(Math.random() * (max - min + 1) ) + min;
+}
+
+function sha256(string) {
+  return CryptoJS.SHA256(string).toString();
 }
 
 function getBip39Array() {
