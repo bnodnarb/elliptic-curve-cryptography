@@ -1949,7 +1949,7 @@ function getBip39Array() {
     'trophy',
     'trouble',
     'truck',
-    'TRUE',
+    'true',
     'truly',
     'trumpet',
     'trust',
