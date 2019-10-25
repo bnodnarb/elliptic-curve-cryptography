@@ -28,7 +28,3 @@ var argv = require('yargs')
 if (COMMAND_SELECTED != true) {
   console.log('\nNo valid command was selected: run with --help\n')
 }
-
-// ONE OF THE WORDS CAN BE TRUE - IN SEED
-// Seed: injury-TRUE-spring-poverty-repair-galaxy-mushroom-nice-monster-enact-benefit-payment
-// same word can be used twice in seed: hover-purpose-muscle-kid-measure-divorce-slot-insect-awake-drum-genius-measure

@@ -55,10 +55,16 @@ module.exports = {
   generateSeed: function() {
     var seedArray = [];
     var bip39Array = getBip39Array();
-    for (i = 1; i <= 12; i++) {
+    instances = 12
+    for (i = 1; i <= instances; i++) {
       var randomInteger = getRandomInteger(0,2047);
       var word = bip39Array[randomInteger];
-      seedArray.push(word);
+      if (seedArray.includes(word)) {
+        instances ++;
+      }
+      else {
+        seedArray.push(word);
+      }
     }
     return seedArray.join('-');
   },
