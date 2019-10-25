@@ -1,19 +1,32 @@
 var functions = require("../functions.js");
-var argv = require('minimist')(process.argv.slice(2));
+var prompt = require('prompt');
 
-var msg = argv.msg;
+var schema = {
+  properties: {
+    message: {
+      message: 'Message to verify',
+      required: true
+    }
+  }
+};
 
-var msgObject = JSON.parse(msg);
-var signedMsg = msgObject.signedMsg;
-var publicKey = msgObject.signedMsg.publicKey;
-var signature = msgObject.signature;
+prompt.start();
 
-var msgHash = functions.sha256(JSON.stringify(signedMsg)).toString();
-var keyFromPublic = functions.keyFromPublic(publicKey,'hex');
-var verified = keyFromPublic.verify(msgHash, signature);
+prompt.get(schema, function (err, argv) {
+  var message = argv.message;
 
-if (verified == true) {
-  functions.outputString('Message is Valid','green','',true,true);
-} else {
-  functions.outputString('Message is not Valid','red','',true,true);
-}
+  var messageObject = JSON.parse(message);
+  var signedMessage = messageObject.signedMessage;
+  var publicKey = messageObject.signedMessage.publicKey;
+  var signature = messageObject.signature;
+
+  var messageHash = functions.sha256(JSON.stringify(signedMessage)).toString();
+  var keyFromPublic = functions.keyFromPublic(publicKey,'hex');
+  var verified = keyFromPublic.verify(messageHash, signature);
+
+  if (verified == true) {
+    functions.outputString('Message is Valid','green','',true,true);
+  } else {
+    functions.outputString('Message is not Valid','red','',true,true);
+  }
+});

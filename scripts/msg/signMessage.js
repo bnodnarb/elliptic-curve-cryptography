@@ -1,27 +1,44 @@
 var functions = require("../functions.js");
-var argv = require('minimist')(process.argv.slice(2));
+var prompt = require('prompt');
 
-privateKey = argv.privateKey;
-msg = argv.msg;
-
-var key = functions.keyFromPrivate(privateKey);
-var publicKey = key.getPublic('hex');
-
-var msgObject = {
-  'message': msg,
-  'publicKey': publicKey,
-  'timestamp': Math.floor(Date.now() / 1000) * 1000
+var schema = {
+  properties: {
+    message: {
+      message: 'Message to sign',
+      required: true
+    },
+    privateKey: {
+      message: 'Your private key',
+      required: true
+    }
+  }
 };
 
-var msgHash = functions.sha256(JSON.stringify(msgObject));
-var signature = key.sign(msgHash);
-var derSignature = signature.toDER('hex');
+prompt.start();
 
-var signedMsgObject = {
-  'signedMsg': msgObject,
-  'signature':derSignature
-}
+prompt.get(schema, function (err, argv) {
+  message = argv.message;
+  privateKey = argv.privateKey;
 
-stringOfSignedMsgObject = JSON.stringify(signedMsgObject);
+  var key = functions.keyFromPrivate(privateKey);
+  var publicKey = key.getPublic('hex');
 
-functions.outputString(stringOfSignedMsgObject,'white','Signed Message: ',true,true);
+  var messageObject = {
+    'message': message,
+    'publicKey': publicKey,
+    'timestamp': Math.floor(Date.now() / 1000) * 1000
+  };
+
+  var messageHash = functions.sha256(JSON.stringify(messageObject));
+  var signature = key.sign(messageHash);
+  var derSignature = signature.toDER('hex');
+
+  var signedMessageObject = {
+    'signedMessage': messageObject,
+    'signature':derSignature
+  }
+
+  stringOfsignedMessageObject = JSON.stringify(signedMessageObject);
+
+  functions.outputString(stringOfsignedMessageObject,'white','Signed Message: ',true,true);
+});

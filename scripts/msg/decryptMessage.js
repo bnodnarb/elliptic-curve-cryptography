@@ -1,9 +1,26 @@
 var functions = require("../functions.js");
-var argv = require('minimist')(process.argv.slice(2));
+var prompt = require('prompt');
 
-var msg = argv.msg;
-var sharedKey = argv.sharedKey;
+var schema = {
+  properties: {
+    message: {
+      message: 'Encrypted message to encrypt',
+      required: true
+    },
+    sharedKey: {
+      message: 'Key that is known to both you and your collaborator',
+      required: true
+    }
+  }
+};
 
-var decryptedMsg = functions.decryptMsg(msg,sharedKey);
+prompt.start();
 
-functions.outputString(decryptedMsg,'white','Decrypted Message: ',true,true);
+prompt.get(schema, function (err, argv) {
+  var message = argv.message;
+  var sharedKey = argv.sharedKey;
+
+  var decryptedMessage = functions.decryptMsg(message,sharedKey);
+
+  functions.outputString(decryptedMessage,'white','Decrypted Message: ',true,true);
+});
