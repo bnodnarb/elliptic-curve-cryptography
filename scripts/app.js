@@ -18,16 +18,20 @@ var argv = require('yargs')
     commands.generateSharedKey();
   })
   .command(['signMessage'], 'Create a signed message\n-Requires: Private key, Message\n', {}, (argv) => {
-    runfile('./msg/signMessage.js');
+    COMMAND_SELECTED = true;
+    commands.signMessage();
   })
   .command(['verifyMessage'], 'Verify a signed message\n-Requires: Signed message\n', {}, (argv) => {
-    runfile('./msg/verifyMessage.js');
+    COMMAND_SELECTED = true;
+    commands.verifyMessage();
   })
   .command(['encryptMessage'], 'Encrypt a message\n-Requires: Shared key, Plain text message\n', {}, (argv) => {
-    runfile('./msg/encryptMessage.js');
+    COMMAND_SELECTED = true;
+    commands.encryptMessage();
   })
   .command(['decryptMessage'], 'Decrypt a message\n-Requires: Shared key, Encrypted message\n', {}, (argv) => {
-    runfile('./msg/decryptMessage.js');
+    COMMAND_SELECTED = true;
+    commands.decryptMessage();
   })
   .help('help').alias('help', 'h')
   .version(false)
