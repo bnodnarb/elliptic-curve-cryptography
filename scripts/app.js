@@ -1,25 +1,21 @@
-const child_process = require('child_process');
 var functions = require("./functions.js");
-
-function runfile(filename) {
-  COMMAND_SELECTED = true;
-  let child = child_process.fork(filename, {
-    // execArgv: ['--use-strict']  // script.js will be executed in strict mode
-  })
-}
+var commands = require("./commands.js");
 
 COMMAND_SELECTED = false
 
 var argv = require('yargs')
   .demandCommand()
   .command(['generateKeysAndSeed'], 'Create a new set of keys and corresponding seed\n-Requires: None, Optional: Passphrase\n', {}, (argv) => {
-    runfile('./generate/generateKeysAndSeed.js');
+    COMMAND_SELECTED = true;
+    commands.generateKeysAndSeed();
   })
   .command(['generateKeysFromSeed'], 'Re-generate a key pair from existing seed\n-Requires: Seed, Optional: Passphrase\n', {}, (argv) => {
-    runfile('./generate/generateKeysFromSeed.js');
+    COMMAND_SELECTED = true;
+    commands.generateKeysFromSeed();
   })
   .command(['generateSharedKey'], 'Create a shared key for encryption/decryption\n-Requires: Private key, Collaborator public key\n', {}, (argv) => {
-    runfile('./generate/generateSharedKey.js');
+    COMMAND_SELECTED = true;
+    commands.generateSharedKey();
   })
   .command(['signMessage'], 'Create a signed message\n-Requires: Private key, Message\n', {}, (argv) => {
     runfile('./msg/signMessage.js');
