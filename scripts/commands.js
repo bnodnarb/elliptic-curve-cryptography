@@ -139,7 +139,7 @@ module.exports = {
     var schema = {
       properties: {
         message: {
-          message: 'Encrypted message to encrypt',
+          message: 'Encrypted message to decrypt',
           required: true
         },
         sharedKey: {
@@ -171,7 +171,7 @@ module.exports = {
           required: true
         },
         sharedKey: {
-          message: 'Key that is known to both you and your collaborator',
+          message: 'Shared key that is known to both you and your collaborator',
           required: true
         }
       }

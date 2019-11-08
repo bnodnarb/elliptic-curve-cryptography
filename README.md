@@ -8,6 +8,7 @@ Use this Node project to experiment with ECC
 - [Chalk] (https://github.com/chalk/chalk): Terminal string styling done right
 - [CryptoJS] (https://github.com/brix/crypto-js): JavaScript library of crypto standards.
 - [Prompt] (https://github.com/flatiron/prompt): a beautiful command-line prompt for node.js
+- [yargs] (https://github.com/yargs/yargs): yargs the modern, pirate-themed successor to optimist.
 
 ## Packaging
 
