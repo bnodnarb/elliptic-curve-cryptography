@@ -7,6 +7,7 @@ Use this Node project to experiment with ECC
 - [Elliptic] (https://github.com/indutny/elliptic): Fast Elliptic Curve Cryptography in plain javascript
 - [Chalk] (https://github.com/chalk/chalk): Terminal string styling done right
 - [CryptoJS] (https://github.com/brix/crypto-js): JavaScript library of crypto standards.
+- [Prompt] (https://github.com/flatiron/prompt): a beautiful command-line prompt for node.js
 
 ## Packaging
 
