@@ -1,3 +1,7 @@
-# This is a test
+# Elliptic Curve Cryptography (ECC) Demonstration
 
-### This is a test
+Use this repository to experiment with ECC
+
+### Dependencies
+
+Test
