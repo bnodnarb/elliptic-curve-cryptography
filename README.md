@@ -12,7 +12,7 @@ Use this Node project to experiment with ECC
 
 - [pkg] (https://github.com/zeit/pkg): Package your Node.js project into an executable
 
-## Instructions on Packaging
+## Instructions for Packaging and Distribution
 
 1. From top-level folder, run `pkg scripts/app.js -t node10-macos-x64`
 2. If running app on new machine (computer), enable permissions with `chmod +x app`
