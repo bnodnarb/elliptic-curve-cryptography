@@ -8,7 +8,7 @@ module.exports = {
     var schema = {
       properties: {
         passphrase: {
-          message: 'Your passphrase',
+          message: 'Enter your passphrase',
           hidden: true,
           required: false
         },
