@@ -39,5 +39,5 @@ var argv = require('yargs')
   .argv;
 
 if (COMMAND_SELECTED != true) {
-  console.log('\nNo valid command was selected: run with --help\n')
+  console.log('\nNo valid command used: run with --help\n')
 }
