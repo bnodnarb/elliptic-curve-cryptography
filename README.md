@@ -1,6 +1,6 @@
 # Elliptic Curve Cryptography (ECC) Demonstration
 
-Use this Node project to experiment with ECC
+Use this Node project to construct experimental tools with ECC
 
 ## Dependencies
 
