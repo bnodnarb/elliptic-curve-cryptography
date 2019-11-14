@@ -5,7 +5,7 @@ COMMAND_SELECTED = false
 
 var argv = require('yargs')
   .demandCommand()
-  .command(['generateKeysAndSeed'], 'Create a new set of keys and corresponding seed\n-Requires: None, Optional: Passphrase\n', {}, (argv) => {
+  .command(['generateKeysAndSeed'], 'Create a set of keys and corresponding seed\n-Requires: None, Optional: Passphrase\n', {}, (argv) => {
     COMMAND_SELECTED = true;
     commands.generateKeysAndSeed();
   })
