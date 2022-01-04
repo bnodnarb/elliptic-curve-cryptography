@@ -11,6 +11,7 @@
     "nexe": "^3.3.7",
     "prompt": "^1.2.0",
     "prompts": "^2.4.2",
+    "winston": "^2.4.5",
     "yargs": "^17.3.1"
   },
   "devDependencies": {},
