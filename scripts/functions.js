@@ -59,12 +59,7 @@ module.exports = {
     for (i = 1; i <= instances; i++) {
       var randomInteger = getRandomInteger(0,2047);
       var word = bip39Array[randomInteger];
-      if (seedArray.includes(word)) {
-        instances ++;
-      }
-      else {
-        seedArray.push(word);
-      }
+      seedArray.push(word);
     }
     return seedArray.join('-');
   },
