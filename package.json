@@ -1,0 +1,30 @@
+{
+  "name": "elliptic-curve-cryptography",
+  "version": "1.0.0",
+  "description": "Use this Node project to construct experimental tools with ECC",
+  "main": "index.js",
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "crypto-js": "^3.3.0",
+    "elliptic": "^6.5.4",
+    "minimist": "^1.2.5",
+    "nexe": "^3.3.7",
+    "prompt": "^1.2.0",
+    "prompts": "^2.4.2",
+    "yargs": "^17.3.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bnodnarb/elliptic-curve-cryptography.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bnodnarb/elliptic-curve-cryptography/issues"
+  },
+  "homepage": "https://github.com/bnodnarb/elliptic-curve-cryptography#readme"
+}
