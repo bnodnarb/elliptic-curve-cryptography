@@ -16,13 +16,17 @@ These cryptographic functions offer building blocks for understanding how digita
 ## Commands
 Some commands require certain parameters. Use the `node app.js --help` command to view all commands and required/optional parameters.
 
-- `node app.js generateKeysAndSeed`: Create a set of keys and corresponding seed
+- `node app.js generateKeysAndSeed`: Create a public/private key pair and corresponding seed
 - `node app.js generateKeysFromSeed`: Re-generate a key pair from existing seed (and passphrase if applicable)
 - `node app.js generateSharedKey`: Create a shared key for encryption/decryption
 - `node app.js signMessage`: Create a signed message
 - `node app.js verifyMessage`: Verify a signed message
 - `node app.js encryptMessage`: Encrypt a message
 - `node app.js decryptMessage`: Decrypt a message
+
+## Installation
+
+- TBD
 
 ## Dependencies
 
