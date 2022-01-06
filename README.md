@@ -1,4 +1,4 @@
-# Elliptic Curve Cryptography (ECC) Demonstration
+# About elliptic-curve-cryptography
 
 The elliptic-curve-cryptography project allows users to learn about digital signatures and secure communication by performing core cryptographic functions.
 
