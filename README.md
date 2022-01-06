@@ -1,6 +1,16 @@
 # Elliptic Curve Cryptography (ECC) Demonstration
 
-Use this Node project to construct experimental tools with ECC
+The elliptic-curve-cryptography project allows users to learn about digital signatures and secure communication by performing core cryptographic functions.
+
+Users can perform the following essential functions:
+- Generate a public/private key pair (private keys are generated using 12 words from the BIP39 word list): https://github.com/bitcoin/bips/blob/master/bip-0039/english.txt
+- Add an optional passphrase to increase security in case their mnemonic seed phrase is compromised
+- Sign messages using their private key
+- Verify the authenticity of messages signed by themselves or others
+- Generate shared keys for secure communication between multiple parties
+- Encrypt /decrypt messages with shared keys
+
+These cryptographic functions offer building blocks for understanding how digital signatures and cryptography can support secure communications.
 
 ## Dependencies
 
