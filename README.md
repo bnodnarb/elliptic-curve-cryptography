@@ -5,6 +5,7 @@ The elliptic-curve-cryptography project allows users to learn about digital sign
 Users can perform the following essential functions:
 - Generate a public/private key pair (private keys are generated using 12 words from the BIP39 word list): https://github.com/bitcoin/bips/blob/master/bip-0039/english.txt
 - Add an optional passphrase to increase security in case their mnemonic seed phrase is compromised
+- Re-generate their public/private key pair from the seed words (and passphrase if applicable)
 - Sign messages using their private key
 - Verify the authenticity of messages signed by themselves or others
 - Generate shared keys for secure communication between multiple parties
