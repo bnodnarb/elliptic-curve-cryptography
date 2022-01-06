@@ -14,14 +14,15 @@ Users can perform the following essential functions:
 These cryptographic functions offer building blocks for understanding how digital signatures and cryptography can support secure communications.
 
 ## Commands
-- `node scripts/app.js --help`: See a list of available commands and required/optional parameters
-- `app.js generateKeysAndSeed`: Create a set of keys and corresponding seed
-- `app.js generateKeysFromSeed`: Re-generate a key pair from existing seed (and passphrase if applicable)
-- `app.js generateSharedKey`: Create a shared key for encryption/decryption
-- `app.js signMessage`: Create a signed message
-- `app.js verifyMessage`: Verify a signed message
-- `app.js encryptMessage`: Encrypt a message
-- `app.js decryptMessage`: Decrypt a message
+Some commands require certain parameters. Use the `node scripts/app.js --help` command to view all commands and required/optional parameters.
+
+- `node scripts/app.js generateKeysAndSeed`: Create a set of keys and corresponding seed
+- `node scripts/app.js generateKeysFromSeed`: Re-generate a key pair from existing seed (and passphrase if applicable)
+- `node scripts/app.js generateSharedKey`: Create a shared key for encryption/decryption
+- `node scripts/app.js signMessage`: Create a signed message
+- `node scripts/app.js verifyMessage`: Verify a signed message
+- `node scripts/app.js encryptMessage`: Encrypt a message
+- `node scripts/app.js decryptMessage`: Decrypt a message
 
 ## Dependencies
 
