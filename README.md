@@ -24,10 +24,6 @@ Some commands require certain parameters. Use the `node app.js --help` command t
 - `node app.js encryptMessage`: Encrypt a message
 - `node app.js decryptMessage`: Decrypt a message
 
-## Installation
-
-- TBD
-
 ## Dependencies
 
 - [Elliptic] (https://github.com/indutny/elliptic): Fast Elliptic Curve Cryptography in plain javascript
